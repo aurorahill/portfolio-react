@@ -1,0 +1,54 @@
+.skillCard {
+  padding: 3rem;
+  cursor: pointer;
+  clip-path: var(--polygon);
+  transition: var(--transition);
+  @media (max-width: 1024px) {
+    width: 80%;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 2rem 1 rem;
+  }
+
+  &:hover {
+    background-color: var(--color-ui-2);
+  }
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    @media (max-width: 1024px) {
+      padding: 1rem;
+    }
+    @media (max-width: 420px) {
+      grid-template-columns: 100%;
+    }
+  }
+  &__details {
+    display: flex;
+    gap: 1rem;
+  }
+  &__logo {
+    width: 3rem;
+    height: 3rem;
+    img {
+      object-fit: contain;
+    }
+  }
+  &__name {
+    font-size: 1.6rem;
+    font-weight: 300;
+    @media (max-width: 350px) {
+      font-size: 1.2rem;
+    }
+  }
+}

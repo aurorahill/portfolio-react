@@ -1,0 +1,21 @@
+.button {
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-white);
+  background-color: rgba(var(--color-primary-rgb), 0.3);
+  box-shadow: var(--card-primary-shadow);
+  transition: var(--transition);
+  border-radius: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  & span {
+    position: relative;
+    bottom: -2px;
+  }
+  &:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.5);
+  }
+}

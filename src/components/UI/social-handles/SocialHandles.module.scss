@@ -1,0 +1,56 @@
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 4rem 0 2rem;
+  &__icon {
+    padding: 1rem;
+    font-size: 2rem;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &:hover .socials__tooltip {
+      top: -45px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  &__tooltip {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    position: absolute;
+    top: 0;
+    font-size: 1.4rem;
+    background: linear-gradient(
+      260deg,
+      var(--color-dark) 0%,
+      var(--color-primary) 100%
+    );
+    color: var(--color-text);
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+    transition: all 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &::before {
+      position: absolute;
+      content: "";
+      height: 8px;
+      width: 8px;
+      background: linear-gradient(
+        230deg,
+        var(--color-dark) 0%,
+        var(--color-primary) 100%
+      );
+      bottom: -3px;
+      left: 50%;
+      transform: translate(-50%) rotate(45deg);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+}

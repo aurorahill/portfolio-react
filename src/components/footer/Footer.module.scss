@@ -1,0 +1,50 @@
+.footer {
+  &__nav {
+    gap: 2rem;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+  &__wrapper {
+    padding-bottom: 0;
+  }
+  &__navItem {
+    font-size: 1.6rem;
+    transition: var(--transition);
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+  &__name {
+    font-size: 110px;
+    font-weight: 700;
+    // color: rgba(124, 110, 139, 0.4);
+    background: conic-gradient(#2bdeac, #ac3ab4, #d8ccef, #2f2585);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    opacity: 0.4;
+
+    @media (max-width: 1200px) {
+      font-size: 75px;
+    }
+    @media (max-width: 800px) {
+      margin: 2rem 0;
+      font-size: 50px;
+      line-height: 1.2;
+    }
+  }
+  &__copyright {
+    width: 100%;
+    text-align: center;
+    & h3 {
+      margin: 3rem 0 2rem;
+      font-size: 1.6rem;
+      opacity: 0.5;
+    }
+    & p {
+      font-size: 1.4rem;
+    }
+  }
+}

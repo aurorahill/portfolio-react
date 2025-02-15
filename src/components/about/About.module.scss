@@ -1,0 +1,64 @@
+.about {
+  position: relative;
+  margin-top: 6rem;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 300px auto;
+    gap: 4rem;
+    border-radius: 20px;
+    position: relative;
+    @media (max-width: 768px) {
+      grid-template-columns: 100%;
+      gap: 2rem;
+    }
+  }
+  &__hole {
+    position: absolute;
+    top: -10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  &__column {
+    position: relative;
+    padding: 12rem 0 5rem;
+    @media (max-width: 768px) {
+      padding-top: 14rem;
+      padding-bottom: 5rem;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    & span {
+      font-weight: 600;
+    }
+  }
+}
+
+.skills {
+  &__container {
+    max-width: 30rem;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+  }
+  &__group {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.aboutMe {
+  @media (max-width: 768px) {
+    padding: 0;
+    padding-bottom: 4rem;
+  }
+  &__description {
+    padding-bottom: 2rem;
+    font-size: 1.6rem;
+  }
+}

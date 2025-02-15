@@ -1,0 +1,34 @@
+.courses {
+  font-size: 1.5rem;
+  &__card {
+    display: flex !important;
+    flex-direction: column;
+    min-height: 350px;
+  }
+  &__stacks {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__logo {
+    padding: 5px;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    & img {
+      object-fit: contain;
+    }
+  }
+  &__title {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  &__tutor {
+    margin: 2rem 0;
+    font-weight: 300;
+  }
+  &__verify {
+    margin-top: auto;
+  }
+}

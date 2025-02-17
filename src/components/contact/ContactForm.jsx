@@ -129,12 +129,32 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !errors.name &&
-      !errors.email &&
-      !errors.message &&
-      !errors.privacyPolicy
-    ) {
+    const newErrors = {
+      name: validateText(
+        formData.name,
+        3,
+        text.validateTextEmpty,
+        text.validateTextNumber
+      ),
+      email: validateEmail(
+        formData.email,
+        text.validateTextEmpty,
+        text.validateEmailText
+      ),
+      message: validateText(
+        formData.message,
+        15,
+        text.validateTextEmpty,
+        text.validateTextNumber
+      ),
+      privacyPolicy: validatePolicy(isAgreed, text.validatePolicy),
+    };
+
+    setErrors((prev) => ({ ...prev, ...newErrors }));
+    const hasErrors = Object.values(newErrors).some((error) => error !== "");
+    console.log(hasErrors);
+
+    if (!hasErrors) {
       setSending(true);
 
       const formDataToSend = new FormData();
@@ -191,7 +211,6 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           onBlur={handleBlur}
-          required
         />
         {errors.name && <p className={classes.error}>{errors.name}</p>}
         <input
@@ -201,7 +220,6 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           onBlur={handleBlur}
-          required
         />
         {errors.email && <p className={classes.error}>{errors.email}</p>}
         <textarea
@@ -220,7 +238,6 @@ const ContactForm = () => {
             id="agreeTerm"
             checked={isAgreed}
             onChange={handleCheckboxChange}
-            required
             className={classes.form__privacyPolicyInput}
           />
           <div>

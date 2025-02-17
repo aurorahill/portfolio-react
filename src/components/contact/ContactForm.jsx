@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { LanguageContext } from "../../store/LanguageContext";
 import classes from "./ContactForm.module.scss";
+import Modal from "../UI/modal/Modal";
 import { useState } from "react";
 import { BsFillSendFill } from "react-icons/bs";
-import { validateEmail, validateText } from "../../validate";
+import { validateEmail, validateText, validatePolicy } from "../../validate";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
   const { language, translations } = useContext(LanguageContext);
   const text = translations[language].formData;
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [openPrivacyPolicy, setOpenPrivacyPolicy] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -20,9 +23,24 @@ const ContactForm = () => {
     name: "",
     email: "",
     message: "",
+    privacyPolicy: "",
   });
 
   const [sending, setSending] = useState(false);
+
+  const handlePrivacyPolicy = () => {
+    setOpenPrivacyPolicy(true);
+    console.log(openPrivacyPolicy);
+  };
+
+  const handleCheckboxChange = (e) => {
+    setIsAgreed(e.target.checked);
+
+    setErrors({
+      ...errors,
+      privacyPolicy: validatePolicy(e.target.checked, text.validatePolicy),
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -101,11 +119,22 @@ const ContactForm = () => {
         ),
       });
     }
+    if (name === "agreeTerm") {
+      setErrors({
+        ...errors,
+        privacyPolicy: validatePolicy(isAgreed, text.validatePolicy),
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!errors.name && !errors.email && !errors.message) {
+    if (
+      !errors.name &&
+      !errors.email &&
+      !errors.message &&
+      !errors.privacyPolicy
+    ) {
       setSending(true);
 
       const formDataToSend = new FormData();
@@ -150,49 +179,83 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      className={classes.form}
-      onSubmit={handleSubmit}
-    >
-      <input
-        type="text"
-        placeholder={text.namePlaceholder}
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        required
-      />
-      {errors.name && <p className={classes.error}>{errors.name}</p>}
-      <input
-        type="email"
-        placeholder={text.emailPlaceholder}
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        required
-      />
-      {errors.email && <p className={classes.error}>{errors.email}</p>}
-      <textarea
-        name="message"
-        rows={7}
-        placeholder={text.messagePlaceholder}
-        value={formData.message}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      ></textarea>
-      {errors.message && <p className={classes.error}>{errors.message}</p>}
-      <button
-        className={`btn flex-center ${classes.form__btn}`}
-        disabled={sending}
+    <>
+      <form
+        className={classes.form}
+        onSubmit={handleSubmit}
       >
-        <div className={classes.form__icon}>
-          <BsFillSendFill />
+        <input
+          type="text"
+          placeholder={text.namePlaceholder}
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          required
+        />
+        {errors.name && <p className={classes.error}>{errors.name}</p>}
+        <input
+          type="email"
+          placeholder={text.emailPlaceholder}
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          required
+        />
+        {errors.email && <p className={classes.error}>{errors.email}</p>}
+        <textarea
+          name="message"
+          rows={7}
+          placeholder={text.messagePlaceholder}
+          value={formData.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        ></textarea>
+        {errors.message && <p className={classes.error}>{errors.message}</p>}
+        <div className={classes.form__privacyPolicy}>
+          <input
+            type="checkbox"
+            name="agreeTerm"
+            id="agreeTerm"
+            checked={isAgreed}
+            onChange={handleCheckboxChange}
+            required
+            className={classes.form__privacyPolicyInput}
+          />
+          <div>
+            <label htmlFor="agreeTerm">{text.agreeTerm}</label>
+            <span onClick={handlePrivacyPolicy}>{text.privacyPolicy}</span>
+          </div>
         </div>
-        <span>{sending ? text.buttonSending : text.button}</span>
-      </button>
-    </form>
+        {errors.privacyPolicy && (
+          <p className={classes.error}>{errors.privacyPolicy}</p>
+        )}
+
+        <button
+          className={`btn flex-center ${classes.form__btn}`}
+          disabled={sending}
+        >
+          <div className={classes.form__icon}>
+            <BsFillSendFill />
+          </div>
+          <span>{sending ? text.buttonSending : text.button}</span>
+        </button>
+      </form>
+      {openPrivacyPolicy && (
+        <Modal
+          open={openPrivacyPolicy}
+          onClose={() => {
+            setOpenPrivacyPolicy(false);
+          }}
+          title={language === "en" ? "privacy policy" : "polityka prywatności"}
+        >
+          <div className={classes.privacyPolicy}>
+            {translations[language].privacyPolicy}
+          </div>
+        </Modal>
+      )}
+    </>
   );
 };
 

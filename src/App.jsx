@@ -11,6 +11,7 @@ const Skills = lazy(() => import("./components/skills/Skills"));
 const Footer = lazy(() => import("./components/footer/Footer"));
 const Courses = lazy(() => import("./components/courses/Courses"));
 import { LanguageProvider } from "./store/LanguageProvider";
+import CookieBanner from "./components/UI/cookie-banner/CookieBanner";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
         <Contact />
         <Footer />
       </Suspense>
+      <CookieBanner />
     </LanguageProvider>
   );
 };

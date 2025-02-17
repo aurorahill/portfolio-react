@@ -870,7 +870,39 @@ const dataEn = {
     validateTextEmpty: "This field cannot be empty",
     validateTextNumber: "Minimum number of characters: ",
     validateEmailText: "Please enter a valid email address",
+    agreeTerm:
+      "I consent to the processing of my personal data in accordance with the ",
+    privacyPolicy: "Privacy Policy",
+    validatePolicy: "You must consent to the processing of personal data",
   },
+  privacyPolicy: `
+1. Administrator of Data
+The administrator of personal data is Katarzyna Lubecka.
+
+2. Scope of Collected Data
+We collect personal data that the user voluntarily provides in the contact form, such as name, surname, email address, and the content of the message.
+
+3. Purpose of Data Processing
+Personal data will be processed solely for the purpose of responding to the inquiry submitted through the contact form.
+
+4. Legal Basis for Data Processing
+The legal basis for processing personal data is the user's consent (Article 6(1)(a) of the GDPR).
+
+5. Data Retention Period
+Personal data will be stored for the period necessary to respond to the inquiry, and after that time, they will be deleted.
+
+6. User Rights
+The user has the right to access their personal data, rectify it, delete it, or restrict its processing, as well as the right to data portability. The user may withdraw consent for data processing at any time, which does not affect the lawfulness of the processing carried out before the withdrawal.
+
+7. Data Recipients
+Personal data may be transferred to the hosting company that provides technical services related to the functioning of the website.
+
+8. Cookies Information
+The website uses only necessary cookies. The user can manage cookie settings in their browser.
+
+9. Contact
+For inquiries regarding the processing of personal data, you can contact us via email: katarzyna.lubecka93@gmail.com.
+  `,
   meta: {
     description:
       "Welcome to my website! I create modern, responsive websites and web applications optimized for SEO, performance, and user experience. Explore my portfolio and let's connect!",

@@ -873,7 +873,39 @@ const dataPl = {
     validateTextEmpty: "To pole nie może być puste",
     validateTextNumber: "Minimalna liczba znaków: ",
     validateEmailText: "Wpisz poprawny adres email",
+    agreeTerm:
+      "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ",
+    privacyPolicy: "Polityką prywatności.",
+    validatePolicy: "Musisz wyrazić zgodę na przetwarzanie danych osobowych",
   },
+  privacyPolicy: `
+1. Administrator Danych
+Administratorem danych osobowych jest Katarzyna Lubecka.
+
+2. Zakres zbieranych danych
+Zbieramy dane osobowe, które użytkownik dobrowolnie podaje w formularzu kontaktowym, tj. imię i nazwisko, adres e-mail oraz treść wiadomości.
+
+3. Cel przetwarzania danych
+Dane osobowe użytkowników będą przetwarzane wyłącznie w celu udzielenia odpowiedzi na zapytanie przesłane przez formularz kontaktowy.
+
+4. Podstawa prawna przetwarzania danych
+Podstawą prawną przetwarzania danych osobowych jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO).
+
+5. Okres przechowywania danych
+Dane osobowe będą przechowywane przez okres niezbędny do udzielenia odpowiedzi na zapytanie, a po tym czasie zostaną usunięte.
+
+6. Prawa użytkownika
+Użytkownik ma prawo dostępu do swoich danych osobowych, ich sprostowania, usunięcia lub ograniczenia przetwarzania, a także prawo do przenoszenia danych. Użytkownik może wycofać zgodę na przetwarzanie danych w dowolnym momencie, co nie wpływa na zgodność z prawem przetwarzania danych przed jej wycofaniem.
+
+7. Odbiorcy danych
+Dane osobowe użytkowników mogą być przekazywane firmie hostingowej, która zapewnia usługi techniczne związane z funkcjonowaniem strony internetowej.
+
+8. Informacja o cookies
+Strona korzysta tylko z niezbędnych plików cookies. Użytkownik może zarządzać ustawieniami cookies w swojej przeglądarce.
+
+9. Kontakt
+Kontakt w sprawie przetwarzania danych osobowych można nawiązać za pomocą adresu e-mail: katarzyna.lubecka93@gmail.com.
+  `,
   meta: {
     description:
       "Witaj na mojej stronie! Tworzę nowoczesne, responsywne strony internetowe i aplikacje webowe zoptymalizowane pod kątem SEO, wydajności i doświadczenia użytkownika. Zapraszam do kontaktu!",

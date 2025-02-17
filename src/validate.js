@@ -16,3 +16,9 @@ export const validateEmail = (email, msgEmpty, msgCorrect) => {
   }
   return "";
 };
+
+export const validatePolicy = (isAgreed, msg) => {
+  if (!isAgreed) {
+    return msg;
+  } else return "";
+};

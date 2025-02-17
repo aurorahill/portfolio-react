@@ -57,6 +57,21 @@
       background: rgb(160, 160, 160);
     }
   }
+  &__privacyPolicy {
+    display: flex;
+    font-size: 1.4rem;
+    & input {
+      width: 23px;
+      margin: 0 2rem 2rem 0;
+    }
+    & div {
+      margin-bottom: 1rem;
+    }
+    & span {
+      color: var(--color-primary);
+      cursor: pointer;
+    }
+  }
 }
 
 .error {
@@ -72,4 +87,8 @@
   to {
     transform: translateY(-0.5rem);
   }
+}
+
+.privacyPolicy {
+  white-space: pre-line;
 }
